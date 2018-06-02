@@ -285,17 +285,20 @@ run "%A_ScriptDir%\d.lnk"
 return
 
 ^!p::
-run "F:\DEVELOP\notecollector\pics.lnk"
+run "%A_ScriptDir%\pics.lnk"
 return
 ^!a::
-run "F:\DEVELOP\notecollector\ace.lnk"
+run "%A_ScriptDir%\ace.lnk"
 return
 ^!2::
-run "F:\DEVELOP\notecollector\2.lnk"
+run "%A_ScriptDir%\2.lnk"
 return
 ^!3::
-run "F:\DEVELOP\notecollector\3.lnk"
+run "%A_ScriptDir%\3.lnk"
+return
+^!4::
+run "%A_ScriptDir%\4.lnk"
 return
 ^!s::
-run "F:\DEVELOP\notecollector\music.lnk"
+run "%A_ScriptDir%\music.lnk"
 return
