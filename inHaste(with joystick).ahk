@@ -4,12 +4,55 @@ SendMode Input  ; Recommended for new scripts due to its superior speed and reli
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 
+
+#Persistent
+SetTimer, WatchAxis, 1000
+return
+
+WatchAxis:
+GetKeyState, JoyU, JoyU  ; Get position of X axis.
+GetKeyState, JoyR, JoyR  ; Get position of Y axis.
+KeyToHoldDownPrev = %KeyToHoldDown%  ; Prev now holds the key that was down before (if any).
+
+if JoyU > 95
+    KeyToHoldDown = Right
+else if JoyU < 5
+    KeyToHoldDown = Left
+else if JoyR > 70
+    KeyToHoldDown = Down
+else if JoyR < 30
+    KeyToHoldDown = Up
+else
+    KeyToHoldDown =
+
+;if KeyToHoldDown = %KeyToHoldDownPrev%   The correct key is already down (or no key is needed).
+    ;return   Do nothing.
+
+; Otherwise, release the previous key and press down the new key:
+SetKeyDelay -1  ; Avoid delays between keystrokes.
+if KeyToHoldDownPrev   ; There is a previous key to release.
+    Send, {%KeyToHoldDownPrev% up}  ; Release it.
+if KeyToHoldDown   ; There is a key to press down.
+    Send, {%KeyToHoldDown% down}  ; Press it down.
+return
+
 +^q::
 clipboard =  ; Start off empty to allow ClipWait to detect when the text has arrived.
 send, {ctrl down}c{ctrl up}
 ClipWait,2
 run clipper.lnk
 return
+
+
+
+Joy1::Send {Space}
+Joy2::Send l
+Joy3::Send j
+Joy4::Send p
+Joy5::Send a
+Joy6::Send d
+Joy8::Send {Alt Down}{F4}{Alt Up}
+Joy10::Send {LWin Down}d{LWin Up}
 
 
 

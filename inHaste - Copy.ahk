@@ -4,12 +4,26 @@ SendMode Input  ; Recommended for new scripts due to its superior speed and reli
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 
+
+
+
 +^q::
 clipboard =  ; Start off empty to allow ClipWait to detect when the text has arrived.
 send, {ctrl down}c{ctrl up}
 ClipWait,2
 run clipper.lnk
 return
+
+
+
+Joy1::Send {Space}
+Joy2::Send l
+Joy3::Send j
+Joy4::Send p
+Joy5::Send a
+Joy6::Send d
+Joy8::Send {Alt Down}{F4}{Alt Up}
+Joy10::Send {LWin Down}d{LWin Up}
 
 
 
