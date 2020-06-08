@@ -8,7 +8,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 clipboard =  ; Start off empty to allow ClipWait to detect when the text has arrived.
 send, {ctrl down}c{ctrl up}
 ClipWait,2
-run clipper.lnk
+Fileappend,%clipboard%`n,quicKlip.txt
 return
 
 

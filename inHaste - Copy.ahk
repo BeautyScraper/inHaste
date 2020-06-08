@@ -1,10 +1,7 @@
-﻿#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
+﻿a#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
 ; #Warn  ; Enable warnings to assist with detecting common errors.
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
-
-
-
 
 
 +^q::
@@ -13,17 +10,6 @@ send, {ctrl down}c{ctrl up}
 ClipWait,2
 run clipper.lnk
 return
-
-
-
-Joy1::Send {Space}
-Joy2::Send l
-Joy3::Send j
-Joy4::Send p
-Joy5::Send a
-Joy6::Send d
-Joy8::Send {Alt Down}{F4}{Alt Up}
-Joy10::Send {LWin Down}d{LWin Up}
 
 
 
