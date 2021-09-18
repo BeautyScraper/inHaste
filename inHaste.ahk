@@ -5,7 +5,10 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 
 +^q::
+IfNotInString, clipboard, httpghtr
+{
 clipboard =  ; Start off empty to allow ClipWait to detect when the text has arrived.
+}
 send, {ctrl down}c{ctrl up}
 ClipWait,2
 Fileappend,%clipboard%`n,quicKlip.txt
@@ -13,8 +16,8 @@ return
 
 
 
-#IfWinActive ahk_class PotPlayer
 
+#IfWinActive ahk_class PotPlayer64
 ^+1::
 FTPCommandFile = %A_ScriptDir%\1.txt
 send, {ctrl down}{shift down}c{shift up}{ctrl up}
